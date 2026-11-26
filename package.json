@@ -1,0 +1,61 @@
+{
+  "name": "dsh-answer-cost",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness plugin: per-answer cost and conversation total, priced turn by turn from provider-reported usage, with the model route and DeepSeek's current peak/off-peak prices taken from that turn's own log.",
+  "type": "module",
+  "license": "MIT",
+  "author": "ltrsqks",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ltrsqks/dsh-answer-cost.git"
+  },
+  "homepage": "https://github.com/ltrsqks/dsh-answer-cost",
+  "bugs": {
+    "url": "https://github.com/ltrsqks/dsh-answer-cost/issues"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cost",
+    "usage",
+    "billing",
+    "token",
+    "pricing",
+    "peak",
+    "off-peak"
+  ],
+  "engines": {
+    "dsh": ">=0.2.2-rc.3 <0.3.0-0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "icon": "assets/icon-256.png",
+  "exports": {
+    ".": "./index.js",
+    "./client": "./client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json",
+    "./cordis.patch.yml": "./cordis.patch.yml"
+  },
+  "files": [
+    "index.js",
+    "client.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "locale/*.json",
+    "icon.svg",
+    "assets/icon-256.png"
+  ],
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation"]
+    }
+  }
+}
