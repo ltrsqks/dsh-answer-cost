@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Answer cost",
+    "description": "Adds two amounts to every finished answer's action row: what that turn cost (`≈ ¥0.0142`) and what this conversation has cost so far (`≈ ¥0.0285`). Priced the way the bill is: each turn is charged from its own provider-reported usage (uncached input, cache hit, cache write, output), with cache writes at the miss rate and reasoning tokens already inside output, so nothing is counted twice. Accurate model routing: the provider/model recorded in that turn's own log decides the rate, so a `deepseek-v4-pro` answer is never billed at flash prices, and a turn that retried across models is priced at its most expensive route instead of being understated. Follows DeepSeek's current list prices and peak/off-peak calendar: 09:00–12:00 and 14:00–18:00 Beijing time on working days are peak, weekends and statutory holidays are off-peak all day, and each turn uses the period of its own end time, so a total spanning 09:00 mixes both rates the way the bill does. Hover either amount for its breakdown: the turn's tokens, model and rate row, or the conversation total with its priced turn count. Only turns still inside the loaded window count toward the total. Amounts are list-price estimates, not a bill. No model request, no session event, no settings; turning it off removes both readings."
+  }
+}
